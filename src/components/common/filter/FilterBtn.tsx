@@ -1,7 +1,6 @@
 import React from "react";
 import xIcon from "../../../assets/x.svg";
 import { FilterBtnProps } from "../../../props";
-import { deleteLS } from "../../../helpers";
 
 const FilterBtn: React.FC<FilterBtnProps> = ({ region, price, square, bedroomCount, func }) => {
   return (

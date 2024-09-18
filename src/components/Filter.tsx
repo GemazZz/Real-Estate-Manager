@@ -4,6 +4,7 @@ import plusWhiteIcon from "../assets/plusWhite.svg";
 import plusRedIcon from "../assets/plusRed.svg";
 import FilterBtn from "./common/filter/FilterBtn";
 import { addLS, deleteLS, getLS, setLS } from "../helpers";
+import RegionFilter from "./common/filter/RegionFilter";
 
 const Filter = (): JSX.Element => {
   const [regionDropDown, setRegionDropDown] = useState<boolean>(false);
@@ -14,14 +15,24 @@ const Filter = (): JSX.Element => {
   // addLS("activeFilter", [{ region: "ბათუმი" }]);
   return (
     <>
-      <div className="w-[1596px] h-[47px] left-[162px] top-[77px] relative flex justify-between">
+      <div
+        className="w-[1596px] h-[47px] left-[162px] top-[77px] relative flex justify-between"
+        onClick={() => {
+          if (regionDropDown !== false) setRegionDropDown(false);
+        }}
+      >
         <div className="w-[785px] h-[47px] p-[6px] border-[1px] border-#DBDBDB rounded-[10px] relative flex justify-between items-center ">
           <DropDownBtn name={"რეგიონი"} isDropDown={regionDropDown} setDropDown={setRegionDropDown} />
           <DropDownBtn name={"საფასო კატეგორია"} isDropDown={priceDropDown} setDropDown={setPriceDropDown} />
           <DropDownBtn name={"ფართობი"} isDropDown={areaDropDown} setDropDown={setAreaDropDown} />
           <DropDownBtn name={"საძინებლების რაოდენობა"} isDropDown={bedroomDropDown} setDropDown={setBedroomDropDown} />
         </div>
-        <div className="relative flex gap-2">
+        <div
+          className="relative flex gap-2"
+          onClick={() => {
+            if (regionDropDown !== false) setRegionDropDown(false);
+          }}
+        >
           <button className="h-[47px] bg-[#F93B1D] py-[10px] px-[16px] relative flex justify-center items-center rounded-[10px]">
             <img src={plusWhiteIcon} alt="plusWhiteIcon" />
             <p className="text-white">ლისტინგის დამატება</p>
@@ -32,7 +43,12 @@ const Filter = (): JSX.Element => {
           </button>
         </div>
       </div>
-      <div className="relative flex top-[94px] h-[29px] left-[162px] gap-[10px]">
+      <div
+        className="relative flex top-[94px] h-[29px] left-[162px] gap-[10px] w-[1758px]"
+        onClick={() => {
+          if (regionDropDown !== false) setRegionDropDown(false);
+        }}
+      >
         {activeFilter.map((criteria, index) => (
           <FilterBtn
             key={index}
@@ -49,6 +65,7 @@ const Filter = (): JSX.Element => {
           </button>
         )}
       </div>
+      <div>{regionDropDown && <RegionFilter />}</div>
     </>
   );
 };
