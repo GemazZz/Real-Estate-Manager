@@ -17,7 +17,7 @@ const Checkbox = ({ value, checked, onChange }: CheckboxProps): JSX.Element => {
           checked ? "bg-[#45A849]" : "bg-white border-[1px] border-[#DBDBDB]"
         }`}
       >
-        {checked && <img src={check} alt="check" width={10} />}
+        {checked && <img src={check} alt="check" width={12} />}
       </label>
     </div>
   );

@@ -27,12 +27,7 @@ const Filter = (): JSX.Element => {
           <DropDownBtn name={"ფართობი"} isDropDown={areaDropDown} setDropDown={setAreaDropDown} />
           <DropDownBtn name={"საძინებლების რაოდენობა"} isDropDown={bedroomDropDown} setDropDown={setBedroomDropDown} />
         </div>
-        <div
-          className="relative flex gap-2"
-          onClick={() => {
-            if (regionDropDown !== false) setRegionDropDown(false);
-          }}
-        >
+        <div className="relative flex gap-2">
           <button className="h-[47px] bg-[#F93B1D] py-[10px] px-[16px] relative flex justify-center items-center rounded-[10px]">
             <img src={plusWhiteIcon} alt="plusWhiteIcon" />
             <p className="text-white">ლისტინგის დამატება</p>
@@ -49,17 +44,21 @@ const Filter = (): JSX.Element => {
           if (regionDropDown !== false) setRegionDropDown(false);
         }}
       >
-        {activeFilter.map((criteria, index) => (
-          <FilterBtn
-            key={index}
-            {...criteria}
-            func={() => {
-              deleteLS("activeFilter", { ...criteria });
-              setActiveFilter(getLS("activeFilter"));
-            }}
-          />
-        ))}
-        {activeFilter.length !== 0 && (
+        {!regionDropDown &&
+          !priceDropDown &&
+          !areaDropDown &&
+          !bedroomDropDown &&
+          activeFilter.map((criteria, index) => (
+            <FilterBtn
+              key={index}
+              {...criteria}
+              func={() => {
+                deleteLS("activeFilter", { ...criteria });
+                setActiveFilter(getLS("activeFilter"));
+              }}
+            />
+          ))}
+        {activeFilter.length !== 0 && !regionDropDown && !priceDropDown && !areaDropDown && !bedroomDropDown && (
           <button>
             <p className="font-[600]">გასუფთავება</p>
           </button>
