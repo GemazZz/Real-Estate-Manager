@@ -11,3 +11,9 @@ export interface FilterBtnProps {
   bedroomCount?: number;
   func: () => void;
 }
+
+export interface Region {
+  id: number;
+  name: string;
+  checked?: boolean;
+}

@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import { fetchData, getLS, setLS } from "../../../helpers";
 import Checkbox from "../common_assets/Checkbox";
+import { Region } from "../../../props";
+import ChooseBtn from "../common_assets/ChooseBtn";
 
-type Region = {
-  id: number;
-  name: string;
-  checked?: boolean;
-};
-
-const RegionFilter = (): JSX.Element => {
+const RegionFilter: React.FC = (): JSX.Element => {
   const [regionData, setRegionData] = useState<Region[]>(() => getLS("regions") || []);
 
   useEffect(() => {
@@ -48,9 +44,7 @@ const RegionFilter = (): JSX.Element => {
             ))}
         </div>
       </div>
-      <div className=" relative flex justify-end w-[683px] h-[33px]">
-        <button className="w-[77px] h-[33px] rounded-[8px] bg-[#F93B1D] text-white text-[14px]">არჩევა</button>
-      </div>
+      <ChooseBtn />
     </div>
   );
 };
