@@ -7,6 +7,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "FiraGO", sans-serif;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  @apply appearance-none;
+  margin: 0;
+}
+
+input[type="number"] {
+  @apply appearance-none;
+  -moz-appearance: textfield;
 }
