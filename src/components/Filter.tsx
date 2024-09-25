@@ -5,6 +5,7 @@ import plusRedIcon from "../assets/plusRed.svg";
 import FilterBtn from "./common/filter/FilterBtn";
 import { addLS, deleteLS, getLS, setLS } from "../helpers";
 import RegionFilter from "./common/filter/RegionFilter";
+import PriceFilter from "./common/filter/PriceFilter";
 
 const Filter = (): JSX.Element => {
   const [regionDropDown, setRegionDropDown] = useState<boolean>(false);
@@ -15,17 +16,28 @@ const Filter = (): JSX.Element => {
   // addLS("activeFilter", [{ region: "ბათუმი" }]);
   return (
     <>
-      <div
-        className="w-[1596px] h-[47px] left-[162px] top-[77px] relative flex justify-between"
-        onClick={() => {
-          if (regionDropDown !== false) setRegionDropDown(false);
-        }}
-      >
+      <div className="w-[1596px] h-[47px] left-[162px] top-[77px] relative flex justify-between">
         <div className="w-[785px] h-[47px] p-[6px] border-[1px] border-#DBDBDB rounded-[10px] relative flex justify-between items-center ">
-          <DropDownBtn name={"რეგიონი"} isDropDown={regionDropDown} setDropDown={setRegionDropDown} />
-          <DropDownBtn name={"საფასო კატეგორია"} isDropDown={priceDropDown} setDropDown={setPriceDropDown} />
-          <DropDownBtn name={"ფართობი"} isDropDown={areaDropDown} setDropDown={setAreaDropDown} />
-          <DropDownBtn name={"საძინებლების რაოდენობა"} isDropDown={bedroomDropDown} setDropDown={setBedroomDropDown} />
+          <DropDownBtn
+            name={"რეგიონი"}
+            isDropDown={regionDropDown}
+            setDropDownFunc={[setRegionDropDown, setPriceDropDown, setAreaDropDown, setBedroomDropDown]}
+          />
+          <DropDownBtn
+            name={"საფასო კატეგორია"}
+            isDropDown={priceDropDown}
+            setDropDownFunc={[setPriceDropDown, setRegionDropDown, setAreaDropDown, setBedroomDropDown]}
+          />
+          <DropDownBtn
+            name={"ფართობი"}
+            isDropDown={areaDropDown}
+            setDropDownFunc={[setAreaDropDown, setRegionDropDown, setPriceDropDown, setBedroomDropDown]}
+          />
+          <DropDownBtn
+            name={"საძინებლების რაოდენობა"}
+            isDropDown={bedroomDropDown}
+            setDropDownFunc={[setBedroomDropDown, setAreaDropDown, setRegionDropDown, setPriceDropDown]}
+          />
         </div>
         <div className="relative flex gap-2">
           <button className="h-[47px] bg-[#F93B1D] py-[10px] px-[16px] relative flex justify-center items-center rounded-[10px]">
@@ -38,12 +50,7 @@ const Filter = (): JSX.Element => {
           </button>
         </div>
       </div>
-      <div
-        className="relative flex top-[94px] h-[29px] left-[162px] gap-[10px] w-[1758px]"
-        onClick={() => {
-          if (regionDropDown !== false) setRegionDropDown(false);
-        }}
-      >
+      <div className="relative flex top-[94px] h-[29px] left-[162px] gap-[10px] w-[1758px]">
         {!regionDropDown &&
           !priceDropDown &&
           !areaDropDown &&
@@ -65,6 +72,7 @@ const Filter = (): JSX.Element => {
         )}
       </div>
       <div>{regionDropDown && <RegionFilter />}</div>
+      <div>{priceDropDown && <PriceFilter />}</div>
     </>
   );
 };
