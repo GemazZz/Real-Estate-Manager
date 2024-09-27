@@ -46,7 +46,7 @@ const PriceFilter: React.FC = () => {
           />
           <p className="absolute left-[130px] top-[10px]">₾</p>
           <ul>
-            <li className="my-[17px] font-[600] ">მინ. ფასი </li>
+            <li className="my-[17px] font-[600] ">მაქს. ფასი </li>
             <li className="my-[3px] text-[14px] cursor-pointer" onClick={() => setMaxPrice("50000")}>
               50,000 ₾
             </li>

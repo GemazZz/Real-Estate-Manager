@@ -6,6 +6,8 @@ import FilterBtn from "./common/filter/FilterBtn";
 import { addLS, deleteLS, getLS, setLS } from "../helpers";
 import RegionFilter from "./common/filter/RegionFilter";
 import PriceFilter from "./common/filter/PriceFilter";
+import AreaFilter from "./common/filter/AreaFilter";
+import BedroomFilter from "./common/filter/BedroomFilter";
 
 const Filter = (): JSX.Element => {
   const [regionDropDown, setRegionDropDown] = useState<boolean>(false);
@@ -73,6 +75,8 @@ const Filter = (): JSX.Element => {
       </div>
       <div>{regionDropDown && <RegionFilter />}</div>
       <div>{priceDropDown && <PriceFilter />}</div>
+      <div>{areaDropDown && <AreaFilter />}</div>
+      <div>{bedroomDropDown && <BedroomFilter />}</div>
     </>
   );
 };
