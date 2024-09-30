@@ -27,7 +27,7 @@ const RegionFilter: React.FC = (): JSX.Element => {
   };
 
   return (
-    <div className="relative flex flex-col justify-evenly items-center w-[731px] h-[284px] left-[162px] top-[65px] border-[1px] border-[#DBDBDB] rounded-[10px]">
+    <div className="relative flex flex-col justify-evenly items-center w-[731px] h-[244px] left-[162px] top-[65px] border-[1px] border-[#DBDBDB] rounded-[10px]">
       <div>
         <div className="relative flex justify-start h-[43px] w-[679px]">
           <b>რეგიონის მიხედვით</b>
@@ -44,7 +44,6 @@ const RegionFilter: React.FC = (): JSX.Element => {
             ))}
         </div>
       </div>
-      <ChooseBtn />
     </div>
   );
 };

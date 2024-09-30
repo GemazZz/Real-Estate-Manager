@@ -3,7 +3,7 @@ import DropDownBtn from "./common/filter/DropDownBtn";
 import plusWhiteIcon from "../assets/plusWhite.svg";
 import plusRedIcon from "../assets/plusRed.svg";
 import FilterBtn from "./common/filter/FilterBtn";
-import { addLS, deleteLS, getLS, setLS } from "../helpers";
+import { deleteLS, getLS } from "../helpers";
 import RegionFilter from "./common/filter/RegionFilter";
 import PriceFilter from "./common/filter/PriceFilter";
 import AreaFilter from "./common/filter/AreaFilter";

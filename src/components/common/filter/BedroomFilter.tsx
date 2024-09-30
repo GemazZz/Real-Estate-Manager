@@ -9,6 +9,8 @@ const BedroomFilter: React.FC = () => {
       <input
         type="number"
         className="border-[1px] border-[rgba(128, 138, 147, 1)] w-[42px] h-[42px] rounded-[6px] p-[10px] mx-[18px] mb-[10px]"
+        value={bedroomCount}
+        onChange={(e) => setBedroomCount(e.target.value)}
       />
       <ChooseBtn />
     </div>
